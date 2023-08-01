@@ -1,0 +1,20 @@
+.homescreen {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.display {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+
+
+.food-entry-list {
+  padding: 20px;
+}
+
+.food-entry-item {
+  padding: 20px;
+}

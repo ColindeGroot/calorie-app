@@ -1,0 +1,10 @@
+.food-form{
+   width: 600px;
+   padding: 30px;
+}
+
+.food-form > form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
