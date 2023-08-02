@@ -5,7 +5,7 @@ import "./display.css";
 
 const Display = () => {
 
-  const [foodEntries, setFoodEntries] = useState([]);
+  const [foodEntries, setFoodEntries] = useState([]); //empty for now
 
   const addFoodEntry = (newFoodEntry) => {
     setFoodEntries((prevEntries) => [...prevEntries, newFoodEntry]);

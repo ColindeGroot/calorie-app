@@ -3,8 +3,26 @@
    padding: 30px;
 }
 
-.food-form > form{
+form{
     display: flex;
     flex-direction: column;
     gap: 10px;
+    border: 3px solid lightgray;background-color: #eee;
+    padding: 2rem;
+    border-radius: 11px;
+}
+
+form > input{
+    border: 1px solid lightgray;
+    padding: 20px;
+    border-radius: 11px;
+}
+
+.form-button{   
+    width: 10rem;
+    padding: 5px;
+    background-color: rgb(59, 126, 220);
+    color: #fff;
+    border-radius: 5px;
+    border: none;
 }

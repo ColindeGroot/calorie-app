@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getFoodEntries } from "../api/api";
 
 const FoodEntryList = () => {
-  const [foodEntries, setFoodEntries] = useState([]);
+  const [foodInput, setFoodInput] = useState([]); 
 
   useEffect(() => {
     fetchFoodEntries();
@@ -11,7 +11,7 @@ const FoodEntryList = () => {
   const fetchFoodEntries = async () => {
     try {
       const entries = await getFoodEntries();
-      setFoodEntries(entries);
+      setFoodInput(entries); 
     } catch (error) {
       console.error("Error fetching food entries:", error);
     }
@@ -20,10 +20,10 @@ const FoodEntryList = () => {
   return (
     <div className="food-entry-list">
       <h2>Food Entry List</h2>
-      {foodEntries.length === 0 ? (
-        <p>No food entries yet.</p>
+      {foodInput.length === 0 ? (
+        <p>Nothing yet.</p>
       ) : (
-        foodEntries.map((foodEntry) => (
+        foodInput.map((foodEntry) => (
           <div key={foodEntry._id} className="food-entry-item">
             <p>Date/Time: {foodEntry.datetime}</p>
             <p>Food Name: {foodEntry.foodName}</p>

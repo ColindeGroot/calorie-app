@@ -2,30 +2,29 @@ import React, { useState } from "react";
 import "./form.css";
 
 const FoodEntryForm = ({ addFoodEntry }) => {
-  const [foodEntry, setFoodEntry] = useState({
-    datetime: "",
+  const [foodInput, setFoodInput] = useState({
+    date: "",
     foodName: "",
-    calorieValue: "",
+    calories: "",
     price: "",
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFoodEntry((prevEntry) => ({ ...prevEntry, [name]: value }));
+    setFoodInput((prevInput) => ({ ...prevInput, [name]: value }));
   };
 
+  // reset form so user can put in new food
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(foodEntry);
-  
-    // Add the entered food to the list of foods
-    addFoodEntry(foodEntry);
-  
-    // Reset the form inputs to empty strings
-    setFoodEntry({
-      datetime: "",
+    console.log(foodInput);
+
+    addFoodEntry(foodInput);
+
+    setFoodInput({
+      date: "",
       foodName: "",
-      calorieValue: "",
+      calories: "",
       price: "",
     });
   };
@@ -37,8 +36,8 @@ const FoodEntryForm = ({ addFoodEntry }) => {
         <label>Date/Time:</label>
         <input
           type="datetime-local"
-          name="datetime"
-          value={foodEntry.datetime}
+          name="date" 
+          value={foodInput.date}
           onChange={handleChange}
           required
         />
@@ -47,16 +46,16 @@ const FoodEntryForm = ({ addFoodEntry }) => {
         <input
           type="text"
           name="foodName"
-          value={foodEntry.foodName}
+          value={foodInput.foodName}
           onChange={handleChange}
           required
         />
 
-        <label>Number of calories:</label>
+        <label>Calories:</label>
         <input
           type="number"
-          name="calorieValue"
-          value={foodEntry.calorieValue}
+          name="calories"
+          value={foodInput.calories}
           onChange={handleChange}
           required
         />
@@ -65,12 +64,12 @@ const FoodEntryForm = ({ addFoodEntry }) => {
         <input
           type="number"
           name="price"
-          value={foodEntry.price}
+          value={foodInput.price}
           onChange={handleChange}
           required
         />
 
-        <button type="submit">Add Entry</button>
+        <button className="form-button" type="submit">Add Entry</button> 
       </form>
     </div>
   );
